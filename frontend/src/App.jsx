@@ -4,7 +4,6 @@ import Layout from "./layout/Layout";
 import AuthPage from "./auth/AuthPage";
 import { ChallengeGenerator, HistoryPanel } from "./components";
 
-
 function App() {
   return (
     <ClerkProviderWithRoutes>
