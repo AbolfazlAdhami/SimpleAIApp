@@ -1,16 +1,4 @@
 
-
-.auth-container {
-  max-width: 400px;
-  margin: 2rem auto;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .challenge-container {
   background-color: white;
   padding: 2rem;
