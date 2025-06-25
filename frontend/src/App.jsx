@@ -3,7 +3,7 @@ import ClerkProviderWithRoutes from "./auth/ClerkProviderWithRoutes";
 import Layout from "./layout/Layout";
 import AuthPage from "./auth/AuthPage";
 import { ChallengeGenerator, HistoryPanel } from "./components";
-import "./App.css";
+
 
 function App() {
   return (
