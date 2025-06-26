@@ -1,8 +1,9 @@
 :root {
-    --primary-color: #3498db;
+    --primary-color: #1e90ff;
     --error-color: #e74c3c;
-    --text-color: #ecf0f1;
-    --bg-color: #0f172b;
+    --text-color:#2f3542;
+    --bg-color: ##ffffff;
+    --bg2-color: #f1f2f6;
     --border-color: #bdc3c7;
   }
   
@@ -27,7 +28,7 @@
   }
   
   .app-header {
-    background-color:  #1d293d;
+    background-color: var(--bg2-color);
     padding: 1rem;
     border-bottom: 1px solid var(--border-color);
     width: 100%;
@@ -75,17 +76,19 @@
   
   .auth-container {
     max-width: 400px;
+    min-height: 100vh;
     margin: 2rem auto;
-    background-color: white;
+    background-color: var(--bg-color);
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   
   .challenge-container {
-    background-color: white;
+    background-color: var(--bg2-color);
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -128,7 +131,7 @@
   }
   
   .history-panel {
-    background-color: white;
+    background-color: var(--bg2-color);
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
