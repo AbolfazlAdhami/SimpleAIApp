@@ -11,8 +11,8 @@ function App() {
         <Route path="/sign-in/*" element={<AuthPage />} />
         <Route path="/sign-up" element={<AuthPage />} />
         <Route element={<Layout />}>
-          <Route path="/" element={ChallengeGenerator} />
-          <Route path="/history" element={HistoryPanel} />
+          <Route path="/" element={<ChallengeGenerator />} />
+          <Route path="/history" element={<HistoryPanel />} />
         </Route>
       </Routes>
     </ClerkProviderWithRoutes>
