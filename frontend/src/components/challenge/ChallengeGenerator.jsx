@@ -29,7 +29,7 @@ function ChallengeGenerator() {
           <p>{error}</p>
         </div>
       )}
-      {challenge && <MCQChallenge />}
+      {challenge && <MCQChallenge challenge={challenge} />}
     </div>
   );
 }
