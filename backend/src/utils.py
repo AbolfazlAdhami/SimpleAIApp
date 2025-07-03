@@ -18,5 +18,9 @@ def authenticate_get_user_details(request):
         )
         if not request_state.is_signed_in:
             raise HTTPException(status_code=401, detail='Invalid Token')
+
+        user_id = request_state.payload.get('sub')
+        return {'user_id': user_id}
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
