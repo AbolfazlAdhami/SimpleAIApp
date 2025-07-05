@@ -27,7 +27,7 @@ def reset_quota_if_needed(db: Session, quota: models.ChallengeQuota):
     return quota
 
 
-def create_challange(
+def create_challenge(
     db: Session,
     difficullty: str,
     created_by: str,
