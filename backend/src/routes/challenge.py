@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from ..database.db import (
     get_challenge_quota, create_challenge, create_challenge_quota, get_user_challenges, reset_quota_if_needed
 )
+from ..ai_generator import generate_challenge_with_ai
 from ..utils import authenticate_get_user_details
 from ..database.models import get_db
 import json
@@ -31,7 +32,28 @@ async def generate_challenge(request: ChallengeRequest, request_obj: Request, db
             raise HTTPException(status_code=429, detail="Quota exhausted")
 
         challenge_data = generate_challenge_with_ai(request.difficulty)
+        new_challenge = create_challenge(
+            db=db,
+            difficulty=request.difficulty,
+            created_by=user_id,
+            title=challenge_data["title"],
+            options=json.dumps(challenge_data["options"]),
+            correct_answer_id=challenge_data["correct_answer_id"],
+            explanation=challenge_data["explanation"]
+        )
 
+        quota.quota_remaining -= 1
+        db.commit()
+
+        return {
+            "id": new_challenge.id,
+            "difficulty": request.difficulty,
+            "title": new_challenge.title,
+            "options": json.loads(new_challenge.options),
+            "correct_answer_id": new_challenge.correct_answer_id,
+            "explanation": new_challenge.explanation,
+            "timestamp": new_challenge.date_created.isoformat()
+        }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
