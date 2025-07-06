@@ -1,8 +1,8 @@
 import React from "react";
-import MCQChallenge from "../challenge/MCQChallenge.jsx";
+import MCQChallenge from "./challenge/MCQChallenge.jsx";
 import { useHistory } from "../hook/useHistory.js";
 
-export function HistoryPanel() {
+export default function HistoryPanel() {
   const { error, isLoading, history, fetchHistory } = useHistory();
 
   if (isLoading) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useApi } from "../utils/api.js";
 
 export function useFetch() {
@@ -9,7 +9,7 @@ export function useFetch() {
       const data = await makeRequest("quota");
       setQuota(data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

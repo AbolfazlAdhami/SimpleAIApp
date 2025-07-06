@@ -38,6 +38,7 @@ def generate_challenge_with_ai(difficulty: str) -> Dict[str, Any]:
             response_format={"type": "json_object"},
             temperature=0.7
         )
+
         content = response.choices[0].message.content
         challenge_data = json.loads(content)
 

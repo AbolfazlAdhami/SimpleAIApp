@@ -4,6 +4,8 @@ import { useChallenge } from "../../hook/useChallenge";
 
 function ChallengeGenerator() {
   const { quota, challenge, error, generateChallenge, getNextResetTime, isLoading, setDifficulty, difficulty } = useChallenge();
+  
+  console.log(challenge, error);
   return (
     <div className="challenge-container">
       <h2>Coding Challenge Generator</h2>
@@ -20,7 +22,7 @@ function ChallengeGenerator() {
           <option value="hard">Hard</option>
         </select>
       </div>
-      <button onClick={generateChallenge} disabled={isLoading || quota?.quota_remaining === 0} className="generate-button">
+      <button onClick={generateChallenge} disabled={false} className="generate-button">
         {isLoading ? "Generating..." : "Generate Challenge"}
       </button>
 

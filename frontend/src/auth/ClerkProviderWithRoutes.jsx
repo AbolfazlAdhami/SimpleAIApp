@@ -9,7 +9,6 @@ if (!PUBLISHABLE_KEY) {
 }
 
 function ClerkProviderWithRoutes({ children }) {
-  console.log(PUBLISHABLE_KEY, "PUBLISHABLE_KEY");
   return (
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <Router>{children}</Router>

@@ -1,4 +1,4 @@
-import  { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useApi } from "../utils/api.js";
 
 export function useChallenge() {
@@ -9,17 +9,17 @@ export function useChallenge() {
   const [quota, setQuota] = useState(null);
   const { makeRequest } = useApi();
 
-  const fetchQuota = useCallback(async () => {
+  const fetchQuota = async () => {
     try {
       const data = await makeRequest("quota");
       setQuota(data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
-  }, [makeRequest]);
-    useEffect(() => {
-      fetchQuota();
-    }, [fetchQuota]);
+  };
+  useEffect(() => {
+    fetchQuota();
+  }, []);
 
   const generateChallenge = async () => {
     setIsLoading(true);
@@ -43,6 +43,7 @@ export function useChallenge() {
     if (!quota?.last_reset_data) return null;
     const resetDate = new Date(quota.last_reset_data);
     resetDate.setHours(resetDate.getHours() + 24);
+
     return resetDate;
   };
 
