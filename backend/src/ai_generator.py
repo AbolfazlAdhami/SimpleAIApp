@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-rapidapi_key = os.getenv("OPENAI_API_KEY")
+rapid_api_key = os.getenv("RAPID_API_KEY")
 
 
 url = "https://gpt-4o-mini2.p.rapidapi.com/v1/chat/completions"
@@ -45,7 +45,7 @@ def generate_challenge_with_ai(difficulty: str) -> Dict[str, Any]:
             "max_tokens": 100,
         }
         headers = {
-            "x-rapidapi-key": "1f51780bc6msh0135ca7981ae452p1c991ajsn1bbd0375b33c",
+            "x-rapidapi-key": rapid_api_key,
             "x-rapidapi-host": "gpt-4o-mini2.p.rapidapi.com",
             "Content-Type": "application/json"
         }
