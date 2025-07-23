@@ -80,7 +80,7 @@ async def my_history(request: Request, db: Session = Depends(get_db)):
     return {'challenges': challenges}
 
 
-@router.get('/quota')
+@router.get('/quota',response_model=Session)
 async def get_quota(request: Request, db: Session = Depends):
     user_details = authenticate_and_get_user_details(request)
     user_id = user_details.get('user_id')
