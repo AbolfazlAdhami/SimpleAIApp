@@ -71,3 +71,10 @@ async def generate_challenge(request: ChallengeRequest, request_obj: Request, db
         raise HTTPException(status_code=400, detail=str(e))
 
 
+@router.get("/my-history")
+async def my_history(request: Request, db: Session = Depends(get_db)):
+    user_details = authenticate_and_get_user_details(request)
+    user_id = user_details.get('user_id')
+
+    challenges = get_user_challenges(db, user_id)
+    return {'challenges': challenges}
